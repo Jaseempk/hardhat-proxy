@@ -9,11 +9,12 @@ module.exports = async ({ getNamedAccounts, deployments }) => {
   const box = await deploy("Box", {
     from: deployer,
     args: [],
+    log: true,
     proxy: {
       proxyContract: "OpenZeppelinTransparentProxy",
       viaAdminContract: {
         name: "BoxProxyAdmin",
-        artifacts: "BoxProxyAdmin",
+        artifact: "BoxProxyAdmin",
       },
     },
   });
